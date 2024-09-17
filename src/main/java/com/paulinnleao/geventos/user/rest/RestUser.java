@@ -8,25 +8,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-public class RestUser {
+public interface RestUser {
     @GetMapping
-    public ResponseEntity<List<?>> getAllUsers(){
-        return null;
-    }
+    public ResponseEntity<List<?>> getAllUsers();
 
     @GetMapping(value = "/{idUser}")
-    public ResponseEntity<?> getUserById(@PathVariable(value = "idUser") Integer idUser){
-        return null;
-    }
+    public ResponseEntity<?> getUserById(@PathVariable(value = "idUser") Integer idUser);
 
     @PutMapping(value = "/{idUser}")
     public ResponseEntity<?> updateUserById(@PathVariable(value = "idUser") Integer idUser,
                                             @RequestBody UserRequestDTO userRequestDTO
-                                            ){
-        return null;
-    }
+                                            );
     @DeleteMapping(value = "/{idUser}")
-    public ResponseEntity<?> deleteUserById(@PathVariable(value = "idUser") Integer idUser){
-        return ResponseEntity.noContent().build();
-    }
+    public ResponseEntity<?> deleteUserById(@PathVariable(value = "idUser") Integer idUser);
 }
