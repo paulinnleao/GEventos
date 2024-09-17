@@ -13,8 +13,8 @@ public class RestEvent {
         return null;
     }
 
-    @GetMapping(name = "/{idEvent}")
-    public ResponseEntity<?> getEventById(@PathVariable(name = "idEvent") Integer idEvent){
+    @GetMapping(value = "/{idEvent}")
+    public ResponseEntity<?> getEventById(@PathVariable(value = "idEvent") Integer idEvent){
         return null;
     }
 
@@ -23,25 +23,25 @@ public class RestEvent {
         return null;
     }
 
-    @PutMapping(name = "/{idEvent}")
-    public ResponseEntity<?> updateEventById(@PathVariable(name = "idEvent")Integer idEvent){
+    @PutMapping(value = "/{idEvent}")
+    public ResponseEntity<?> updateEventById(@PathVariable(value = "idEvent")Integer idEvent){
         return null;
     }
 
-    @DeleteMapping(name = "{idEvent}")
-    public ResponseEntity<?> deleteEventById(@PathVariable(name = "idEvent") Integer idEvent){
+    @DeleteMapping(value = "{idEvent}")
+    public ResponseEntity<?> deleteEventById(@PathVariable(value = "idEvent") Integer idEvent){
         return ResponseEntity.noContent().build();
     }
 
 
     // Registers
-    @PostMapping(name = "/{idEvent}/enroll")
+    @PostMapping(value = "/{idEvent}/enroll")
     public ResponseEntity<?> registerAtTheEvent(@PathVariable(value = "idEvent") Integer idEvent){
         return null;
     }
 
-    @DeleteMapping(name = "/{idEvent}/enroll")
-    public ResponseEntity<?> deleteRegisterById(@PathVariable(name = "idEvent") Integer idEvent){
+    @DeleteMapping(value = "/{idEvent}/enroll")
+    public ResponseEntity<?> deleteRegisterById(@PathVariable(value = "idEvent") Integer idEvent){
         return ResponseEntity.noContent().build();
     }
 
