@@ -1,7 +1,6 @@
 package com.paulinnleao.geventos.user.rest;
 
 import com.paulinnleao.geventos.user.UserReciveDTO;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

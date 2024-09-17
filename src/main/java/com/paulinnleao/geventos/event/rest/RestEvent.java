@@ -1,6 +1,5 @@
 package com.paulinnleao.geventos.event.rest;
 
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/events")
-public class ResEvent {
+public class RestEvent {
     @GetMapping
     public ResponseEntity<List<?>> getAllEvents(){
         return null;
