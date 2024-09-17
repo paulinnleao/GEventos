@@ -1,6 +1,6 @@
 package com.paulinnleao.geventos.user.rest;
 
-import com.paulinnleao.geventos.user.UserReciveDTO;
+import com.paulinnleao.geventos.user.UserRequestDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +21,7 @@ public class RestUser {
 
     @PutMapping(name = "/{idUser}")
     public ResponseEntity<?> updateUserById(@PathVariable(name = "idUser") Integer idUser,
-                                            @RequestBody UserReciveDTO userReciveDTO
+                                            @RequestBody UserRequestDTO userRequestDTO
                                             ){
         return null;
     }

@@ -5,7 +5,7 @@ import com.paulinnleao.geventos.user.User;
 import java.util.Date;
 import java.util.UUID;
 
-public record EventReciveDTO(
+public record EventRequestDTO(
         UUID id,
         String title,
         String description,

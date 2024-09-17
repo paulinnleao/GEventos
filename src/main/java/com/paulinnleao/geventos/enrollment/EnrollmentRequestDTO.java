@@ -1,4 +1,4 @@
 package com.paulinnleao.geventos.enrollment;
 
-public record EnrollmentReciveDTO() {
+public record EnrollmentRequestDTO() {
 }
