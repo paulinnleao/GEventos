@@ -9,10 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/notifications")
-public class RestNotification {
+public interface RestNotification {
 
     @GetMapping
-    public ResponseEntity<List<?>> allNotification(){
-        return null;
-    }
+    ResponseEntity<List<?>> allNotification();
 }

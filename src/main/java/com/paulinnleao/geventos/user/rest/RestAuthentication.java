@@ -28,7 +28,7 @@ public interface RestAuthentication {
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             })
-    public ResponseEntity<?> register(@RequestBody UserRequestDTO userRequestDTO);
+    ResponseEntity<?> register(@RequestBody UserRequestDTO userRequestDTO);
 
     @PostMapping("/login")
     @Operation(
@@ -44,5 +44,5 @@ public interface RestAuthentication {
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             }
     )
-    public ResponseEntity<?> login(@RequestBody UserRequestDTO userRequestDTO);
+    ResponseEntity<?> login(@RequestBody UserRequestDTO userRequestDTO);
 }

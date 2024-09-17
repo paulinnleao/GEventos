@@ -10,15 +10,15 @@ import java.util.List;
 @RequestMapping("/users")
 public interface RestUser {
     @GetMapping
-    public ResponseEntity<List<?>> getAllUsers();
+    ResponseEntity<List<?>> getAllUsers();
 
     @GetMapping(value = "/{idUser}")
-    public ResponseEntity<?> getUserById(@PathVariable(value = "idUser") Integer idUser);
+    ResponseEntity<?> getUserById(@PathVariable(value = "idUser") Integer idUser);
 
     @PutMapping(value = "/{idUser}")
-    public ResponseEntity<?> updateUserById(@PathVariable(value = "idUser") Integer idUser,
+    ResponseEntity<?> updateUserById(@PathVariable(value = "idUser") Integer idUser,
                                             @RequestBody UserRequestDTO userRequestDTO
                                             );
     @DeleteMapping(value = "/{idUser}")
-    public ResponseEntity<?> deleteUserById(@PathVariable(value = "idUser") Integer idUser);
+    ResponseEntity<?> deleteUserById(@PathVariable(value = "idUser") Integer idUser);
 }
