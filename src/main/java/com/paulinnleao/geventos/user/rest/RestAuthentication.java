@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestAuthentication {
 
     @PostMapping("/register")
-    ResponseEntity<?> register(@RequestBody UserReciveDTO userReciveDTO){
+    public ResponseEntity<?> register(@RequestBody UserReciveDTO userReciveDTO){
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("login")
-    ResponseEntity<?> login(@RequestBody UserReciveDTO userReciveDTO){
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserReciveDTO userReciveDTO){
         return ResponseEntity.ok().build();
     }
 }
