@@ -7,42 +7,28 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/events")
-public class RestEvent {
+public interface RestEvent {
     @GetMapping
-    public ResponseEntity<List<?>> getAllEvents(){
-        return null;
-    }
+    ResponseEntity<List<?>> getAllEvents();
 
     @GetMapping(value = "/{idEvent}")
-    public ResponseEntity<?> getEventById(@PathVariable(value = "idEvent") Integer idEvent){
-        return null;
-    }
+    ResponseEntity<?> getEventById(@PathVariable(value = "idEvent") Integer idEvent);
 
     @PostMapping
-    public ResponseEntity<?> createEvent(){
-        return null;
-    }
+    ResponseEntity<?> createEvent();
 
     @PutMapping(value = "/{idEvent}")
-    public ResponseEntity<?> updateEventById(@PathVariable(value = "idEvent")Integer idEvent){
-        return null;
-    }
+    ResponseEntity<?> updateEventById(@PathVariable(value = "idEvent")Integer idEvent);
 
     @DeleteMapping(value = "{idEvent}")
-    public ResponseEntity<?> deleteEventById(@PathVariable(value = "idEvent") Integer idEvent){
-        return ResponseEntity.noContent().build();
-    }
+    ResponseEntity<?> deleteEventById(@PathVariable(value = "idEvent") Integer idEvent);
 
 
     // Registers
     @PostMapping(value = "/{idEvent}/enroll")
-    public ResponseEntity<?> registerAtTheEvent(@PathVariable(value = "idEvent") Integer idEvent){
-        return null;
-    }
+    ResponseEntity<?> registerAtTheEvent(@PathVariable(value = "idEvent") Integer idEvent);
 
     @DeleteMapping(value = "/{idEvent}/enroll")
-    public ResponseEntity<?> deleteRegisterById(@PathVariable(value = "idEvent") Integer idEvent){
-        return ResponseEntity.noContent().build();
-    }
+    ResponseEntity<?> deleteRegisterById(@PathVariable(value = "idEvent") Integer idEvent);
 
 }
