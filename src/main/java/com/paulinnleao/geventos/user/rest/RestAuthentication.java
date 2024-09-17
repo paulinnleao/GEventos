@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 @Tag(name = "Authentication", description = "Endpoints to manage authentication")
-public class RestAuthentication {
+public interface RestAuthentication {
 
     @PostMapping("/register")
     @Operation(
@@ -28,9 +28,7 @@ public class RestAuthentication {
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             })
-    public ResponseEntity<?> register(@RequestBody UserRequestDTO userRequestDTO){
-        return ResponseEntity.ok().build();
-    }
+    public ResponseEntity<?> register(@RequestBody UserRequestDTO userRequestDTO);
 
     @PostMapping("/login")
     @Operation(
@@ -46,7 +44,5 @@ public class RestAuthentication {
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             }
     )
-    public ResponseEntity<?> login(@RequestBody UserRequestDTO userRequestDTO){
-        return ResponseEntity.ok().build();
-    }
+    public ResponseEntity<?> login(@RequestBody UserRequestDTO userRequestDTO);
 }
