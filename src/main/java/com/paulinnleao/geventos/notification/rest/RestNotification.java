@@ -22,7 +22,7 @@ public interface RestNotification {
     @Operation(
             summary = "Get a notification",
             description = "Get a notification if exits with UUID",
-            tags = {"User"},
+            tags = {"Notification"},
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
                             content = @Content(schema = @Schema(implementation = Notification.class))),
