@@ -12,6 +12,6 @@ public record EventRequestDTO(
         Date startDate,
         Date endDate,
         String location,
-        Integer avaliableSlots,
+        Integer availableSlots,
         User user) {
 }

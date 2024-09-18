@@ -7,7 +7,6 @@ import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 import java.util.UUID;
 
 @Table(name = "events")
@@ -42,8 +41,8 @@ public class Event implements Serializable {
     @Column
     private String location;
 
-    @Column(name = "avaliable_slots")
-    private Integer avaliableSlots;
+    @Column(name = "available_slots")
+    private Integer availableSlots;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUser")
