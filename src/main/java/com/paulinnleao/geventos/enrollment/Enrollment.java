@@ -29,11 +29,11 @@ public class Enrollment implements Serializable {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idEvent")
     private Event event;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idUser")
     private User user;
 
     @Override

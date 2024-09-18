@@ -2,10 +2,7 @@ package com.paulinnleao.geventos.notification;
 
 import com.paulinnleao.geventos.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -18,31 +15,20 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Notification implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @Column(name = "id")
+    private UUID idNotificatioin;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idUser")
     private User user;
 
     @Column
     private String message;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Notification that = (Notification) o;
-        return Objects.equals(id, that.id) && Objects.equals(user, that.user) && Objects.equals(message, that.message);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, user, message);
-    }
 }

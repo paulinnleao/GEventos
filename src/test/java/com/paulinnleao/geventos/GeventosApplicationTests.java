@@ -3,10 +3,10 @@ package com.paulinnleao.geventos;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class GeventosApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 

@@ -2,10 +2,7 @@ package com.paulinnleao.geventos.event;
 
 import com.paulinnleao.geventos.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,6 +16,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class Event implements Serializable {
 
     @Serial
@@ -26,7 +24,8 @@ public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @Column(name = "id")
+    private UUID idEvent;
 
     @Column
     private String title;
@@ -47,19 +46,7 @@ public class Event implements Serializable {
     private Integer avaliableSlots;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "idUser")
     private User user;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return Objects.equals(id, event.id) && Objects.equals(title, event.title) && Objects.equals(description, event.description) && Objects.equals(startDate, event.startDate) && Objects.equals(endDate, event.endDate) && Objects.equals(location, event.location) && Objects.equals(avaliableSlots, event.avaliableSlots) && Objects.equals(user, event.user);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, description, startDate, endDate, location, avaliableSlots, user);
-    }
 }
