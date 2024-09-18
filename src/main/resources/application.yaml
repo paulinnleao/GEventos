@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: geventos
+    datasource:
+        url: jdbc:postgres://localhost:5432/geventos?useTimezone=true&serverTimezone=UTC
+        username: postgres
+        password: postgres
