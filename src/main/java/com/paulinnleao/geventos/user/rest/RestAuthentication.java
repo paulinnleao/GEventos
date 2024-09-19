@@ -7,17 +7,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/auth")
 @Tag(name = "Authentication", description = "Endpoints to manage authentication")
 public interface RestAuthentication {
 
-    @PostMapping("/register")
+
     @Operation(
             summary = "Register a new user",
             description = "Register a new user if not exists",
@@ -28,9 +22,8 @@ public interface RestAuthentication {
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             })
-    ResponseEntity<?> register(@RequestBody UserRequestDTO userRequestDTO);
+    ResponseEntity<?> register(UserRequestDTO userRequestDTO);
 
-    @PostMapping("/login")
     @Operation(
             summary = "Singin up",
             description = "If an account exist, this will allow to log in",
@@ -44,5 +37,5 @@ public interface RestAuthentication {
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             }
     )
-    ResponseEntity<?> login(@RequestBody UserRequestDTO userRequestDTO);
+    ResponseEntity<?> login(UserRequestDTO userRequestDTO);
 }

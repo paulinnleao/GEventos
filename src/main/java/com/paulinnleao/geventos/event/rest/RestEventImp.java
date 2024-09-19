@@ -1,45 +1,55 @@
 package com.paulinnleao.geventos.event.rest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/events")
 public class RestEventImp implements RestEvent{
 
     @Override
+    @GetMapping
     public ResponseEntity<List<?>> getAllEvents(){
         return null;
     }
 
     @Override
-    public ResponseEntity<?> getEventById(Integer idEvent){
+    @GetMapping("/{idEvent}")
+    public ResponseEntity<?> getEventById(@PathVariable(value = "idEvent") Integer idEvent){
         return null;
     }
 
     @Override
+    @PostMapping
     public ResponseEntity<?> createEvent(){
         return null;
     }
 
     @Override
-    public ResponseEntity<?> updateEventById(Integer idEvent){
+    @PutMapping("/{idEvent}")
+    public ResponseEntity<?> updateEventById(@PathVariable(value = "idEvent") Integer idEvent){
         return null;
     }
 
     @Override
-    public ResponseEntity<?> deleteEventById(Integer idEvent){
+    @DeleteMapping("{idEvent}")
+    public ResponseEntity<?> deleteEventById(@PathVariable(value = "idEvent") Integer idEvent){
         return ResponseEntity.noContent().build();
     }
 
 
     // Registers
     @Override
-    public ResponseEntity<?> registerAtTheEvent(Integer idEvent){
+    @PostMapping("/{idEvent}/enroll")
+    public ResponseEntity<?> registerAtTheEvent(@PathVariable(value = "idEvent") Integer idEvent){
         return null;
     }
 
     @Override
-    public ResponseEntity<?> deleteRegisterById(Integer idEvent){
+    @DeleteMapping("/{idEvent}/enroll")
+    public ResponseEntity<?> deleteRegisterById(@PathVariable(value = "idEvent") Integer idEvent){
         return ResponseEntity.noContent().build();
     }
 }

@@ -7,15 +7,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/users")
 @Tag(name = "User", description = "Endpoints to manage users")
 public interface RestUser {
-    @GetMapping
+
     @Operation(
             summary = "Get all users",
             description = "Get all users if exits pageable",
@@ -30,7 +27,6 @@ public interface RestUser {
             })
     ResponseEntity<List<?>> getAllUsers();
 
-    @GetMapping(value = "/{idUser}")
     @Operation(
             summary = "Get an users",
             description = "Get an users if exits using the UUID",
@@ -43,9 +39,9 @@ public interface RestUser {
                     @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             })
-    ResponseEntity<?> getUserById(@PathVariable(value = "idUser") Integer idUser);
+    ResponseEntity<?> getUserById(Integer idUser);
 
-    @PutMapping(value = "/{idUser}")
+
     @Operation(
             summary = "Update an user if exists",
             description = "Update an user if exists with his UUID. Get the user with UUID and update with body data",
@@ -58,10 +54,8 @@ public interface RestUser {
                     @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             })
-    ResponseEntity<?> updateUserById(@PathVariable(value = "idUser") Integer idUser,
-                                            @RequestBody UserRequestDTO userRequestDTO
-                                            );
-    @DeleteMapping(value = "/{idUser}")
+    ResponseEntity<?> updateUserById(Integer idUser, UserRequestDTO userRequestDTO);
+
     @Operation(
             summary = "Delete an user",
             description = "Delete an user with UUID if exists",
@@ -74,5 +68,5 @@ public interface RestUser {
                     @ApiResponse(description = "Not Found", responseCode = "404", content = @Content),
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             })
-    ResponseEntity<?> deleteUserById(@PathVariable(value = "idUser") Integer idUser);
+    ResponseEntity<?> deleteUserById(Integer idUser);
 }

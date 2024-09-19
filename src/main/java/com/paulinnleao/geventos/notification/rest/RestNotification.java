@@ -7,18 +7,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping(value = "/notifications")
+
 @Tag(name = "Notification", description = "Endpoints to manage notifications")
 public interface RestNotification {
 
-    @GetMapping
     @Operation(
             summary = "Get a notification",
             description = "Get a notification if exits with UUID",
