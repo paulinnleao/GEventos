@@ -16,9 +16,9 @@ public class OpenApiConfig {
                         .title("API Gerenciamento de Eventos")
                         .version("V1")
                         .description("Descrição swagger dos endpoints da API")
-                        .termsOfService("https://www.geventos.com.br")
+                        .termsOfService("https://geventos.com.br")
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("https://www.geventos.com.br")));
+                                .url("https://geventos.com.br")));
     }
 }
