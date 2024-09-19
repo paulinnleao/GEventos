@@ -1,5 +1,6 @@
 package com.paulinnleao.geventos.user.rest;
 
+import com.paulinnleao.geventos.user.AuthenticationDTO;
 import com.paulinnleao.geventos.user.UserRequestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -37,5 +38,5 @@ public interface RestAuthentication {
                     @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content)
             }
     )
-    ResponseEntity<?> login(UserRequestDTO userRequestDTO);
+    ResponseEntity<?> login(AuthenticationDTO authenticationDTO);
 }

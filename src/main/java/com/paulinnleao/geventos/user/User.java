@@ -42,6 +42,13 @@ public class User implements Serializable, UserDetails {
     @Column
     private UserRole role;
 
+    public User(String name, String email, String password, UserRole userRole){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = userRole;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_PARTICIPANT"));
