@@ -1,11 +1,12 @@
 package com.paulinnleao.geventos.user.rest;
 
+import com.paulinnleao.geventos.config.security.TokenService;
 import com.paulinnleao.geventos.user.AuthenticationDTO;
+import com.paulinnleao.geventos.user.LoginResponseDTO;
 import com.paulinnleao.geventos.user.User;
 import com.paulinnleao.geventos.user.UserRequestDTO;
 import com.paulinnleao.geventos.user.repository.UserRepositry;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,10 +28,13 @@ public class RestAuthenticationImp implements RestAuthentication{
     @Autowired
     private UserRepositry userRepositry;
 
+    @Autowired
+    private TokenService tokenService;
+
     @Override
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UserRequestDTO userRequestDTO){
-        if(this.userRepositry.findByLogin(userRequestDTO.email()) != null) return ResponseEntity.badRequest().build();
+        if(this.userRepositry.findByEmail(userRequestDTO.email()) != null) return ResponseEntity.badRequest().build();
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(userRequestDTO.password());
         User newUser = new User(userRequestDTO.name(), userRequestDTO.email(), encryptedPassword, userRequestDTO.role());
@@ -46,6 +50,8 @@ public class RestAuthenticationImp implements RestAuthentication{
         var usernamePassword = new UsernamePasswordAuthenticationToken(authenticationDTO.email(), authenticationDTO.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((User) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 }
